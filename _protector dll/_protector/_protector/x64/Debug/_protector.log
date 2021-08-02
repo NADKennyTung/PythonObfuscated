@@ -1,0 +1,4 @@
+﻿  dllmain.cpp
+D:\Tools\FunnyProtector\_protector dll\_protector\_protector\dllmain.cpp(64,29): warning C4805: '==': unsafe mix of type 'BOOL' and type 'bool' in operation
+     Creating library D:\Tools\FunnyProtector\_protector dll\_protector\x64\Debug\_protector.lib and object D:\Tools\FunnyProtector\_protector dll\_protector\x64\Debug\_protector.exp
+  _protector.vcxproj -> D:\Tools\FunnyProtector\_protector dll\_protector\x64\Debug\_protector.dll

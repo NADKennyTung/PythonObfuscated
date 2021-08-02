@@ -1,0 +1,8 @@
+﻿  dllmain.cpp
+D:\Tools\FunnyProtector\_protector dll\_protector\_protector\dllmain.cpp(46,20): warning C4018: '<': signed/unsigned mismatch
+D:\Tools\FunnyProtector\_protector dll\_protector\_protector\dllmain.cpp(64,29): warning C4805: '==': unsafe mix of type 'BOOL' and type 'bool' in operation
+D:\Tools\FunnyProtector\_protector dll\_protector\_protector\dllmain.cpp(124,20): warning C4018: '<': signed/unsigned mismatch
+D:\Tools\FunnyProtector\_protector dll\_protector\_protector\dllmain.cpp(136,20): warning C4018: '<': signed/unsigned mismatch
+D:\Tools\FunnyProtector\_protector dll\_protector\_protector\dllmain.cpp(151,21): warning C4018: '<': signed/unsigned mismatch
+     Creating library D:\Tools\FunnyProtector\_protector dll\_protector\Debug\_protector.lib and object D:\Tools\FunnyProtector\_protector dll\_protector\Debug\_protector.exp
+  _protector.vcxproj -> D:\Tools\FunnyProtector\_protector dll\_protector\Debug\_protector.dll
