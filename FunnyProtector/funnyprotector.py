@@ -28,17 +28,6 @@ def unxor(string2encrypt):
     finalstring = bytes.fromhex(finalstring)
     return finalstring.decode()
 
-#get string of a given variable
-def getstring(string):
-    xlen = 0
-    x = re.search("(\".*\")", string)
-    if x is not None:
-        x = x.group()
-        xlen = len(x)
-        if xlen > 3:
-            return x
-
-
 def returnCipher(code):
     if sys.platform == "win32":
         #if the windows architecture is  32 bits
@@ -72,21 +61,7 @@ def obfuscation():
     toobfu = ""
     filetoobfu = open(file2obfu,"r",encoding="utf-8",errors="ignore")
     for line in filetoobfu:
-        if "import" in line and "from" not in line:
-            #add the Cipher function
-            line = line.replace("\n","")+",sys,ctypes\nfrom ctypes import *\ndef Cipher(string):\n    if sys.platform == 'win32':\n        if ctypes.sizeof(ctypes.c_voidp)==4:\n           mydll=ctypes.CDLL('FunnyProtector\\\_protector32.dll')\n        elif ctypes.sizeof(ctypes.c_voidp)==8:\n            mydll=ctypes.CDLL('FunnyProtector\\\_protector.dll')\n    mydll.StringEncrypt.restype = c_wchar_p\n    result = mydll.StringEncrypt(string)\n    return result\n"
-            #print(line)
-        #encrypt the string
-        string = getstring(line)
-        
-        if string == None or string == "\"utf-8\"" or "\"utf-8\"" in string or "{" in string or "[" in string or ":" in string or "," in string:
-            toobfu += line
-
-        if string != None and string != "" and string != "\"utf-8\"" and "{" not in string and "[" not in string and ":" not in string and "," not in string:
-            #print(string)
-            #string2replace = "Cipher(\""+StringEncrypt(string.replace("\"",""))+"\")"
-            toobfu += line
-            #toobfu += line.replace(string,string2replace) # sinh ra 1 so loi khi dung string ""
+        toobfu += line
     filetoobfu.close()
 
     #create FunnyProtect folder
