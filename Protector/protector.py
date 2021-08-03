@@ -1,13 +1,9 @@
-import base64,sys,time,binascii,os,re,ctypes,urllib,getpass,json,hashlib,webbrowser
-from urllib import request,parse
+import base64,sys,binascii,os,ctypes
 from ctypes import *
-from colorama import init,Fore,Back,Style
-from datetime import datetime
 
 kernel32 = ctypes.WinDLL('kernel32')
 user32 = ctypes.WinDLL('user32')
 SW_MAXIMIZE = 3
-init()
 
 def xor(string2encrypt):
     finalstring = ""
@@ -64,7 +60,7 @@ def obfuscation():
         toobfu += line
     filetoobfu.close()
 
-    #create FunnyProtect folder
+    #create Protect folder
     os.system("mkdir Protected")
     filename = file2obfu
     filetoobfu_create = open("Protected\\"+os.path.basename(filename),"w").close()
@@ -72,12 +68,12 @@ def obfuscation():
     path = os.path.abspath(filename[0:-filename_len])
     path = path+"\\"
 
-    os.system("mkdir Protected\\FunnyProtector")
-    os.system("copy _protector.dll Protected\\FunnyProtector")
-    os.system("copy _protector32.dll Protected\\FunnyProtector")
+    os.system("mkdir Protected\\Protector")
+    os.system("copy _protector.dll Protected\\Protector")
+    os.system("copy _protector32.dll Protected\\Protector")
 
     #create protector.py
-    protector = open("Protected\\FunnyProtector\\protector.py","w") # convert "a" mode to "w" mode
+    protector = open("Protected\\Protector\\protector.py","w") # convert "a" mode to "w" mode
     protector.write("from ctypes import *\nimport sys,ctypes\nif sys.platform == 'win32':\n    if ctypes.sizeof(ctypes.c_voidp)==4:\n        mydll=ctypes.CDLL('FunnyProtector\\\_protector32.dll')\n    elif ctypes.sizeof(ctypes.c_voidp)==8:\n        mydll=ctypes.CDLL('FunnyProtector\\\_protector.dll')\ndef returnCipher(code,file):\n    mydll.unXoring.restype = c_wchar_p\n    result = mydll.unXoring(code,file)\n    return result")
     protector.close()
 
