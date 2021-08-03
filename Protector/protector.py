@@ -87,7 +87,7 @@ def obfuscation():
         xorencode+
         "\r\nexec(base64.b64decode(EEE3E3E3E3('"+xored_obfuscate+"')))")
 
-    filetoobfu.write("from FunnyProtector import protector\nexec(protector.returnCipher('"+final_obfu+"',__file__))")
+    filetoobfu.write("from Protector import protector\nexec(protector.returnCipher('"+final_obfu+"',__file__))")
     filetoobfu.close()
 
 def main():
